@@ -46,9 +46,11 @@ Usage:
 
 if __name__ == '__main__':
     # default values
-    filename = "/home/max/Downloads/export.xls"
-    wikipath = "/RAMDisk/"
+    # filename = "/home/max/Downloads/export.xls"
+    # wikipath = "/RAMDisk/"
     wikiname = "test"
+    wikipath = ""
+    filename = ""
     # evaluating starting arguments
     for i, arg in enumerate(sys.argv):
         if arg == ("--help" or "-h"):
@@ -64,4 +66,8 @@ if __name__ == '__main__':
     print("Lernziele to zim wiki database converter")
     if wikiname == "test":
         wikiname = input("Enter Wiki Name: ")
+    if filename == "":
+        filename = input ("Enter input file path: ")
+    if wikipath == "":
+        wikipath = input("Enter output wiki file path: ")
     eng = Engine(filename, wikiname, wikipath)
