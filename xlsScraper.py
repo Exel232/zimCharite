@@ -31,7 +31,7 @@ class xlsScraper:
         self.lzdb = LzClasses.LzDatabase("Test")
         prevIndex = ""
         for r in range(1, self.sheet.nrows):
-            row = self.sheet.row_values(r)
+            row = self.sheet.row_values(r)[:7]
             # 0 - modul 1 - period 2 - week 3 - event 4 - dim 5 - cog 6 - lz
             self.lzdb.addLz(*row)
 
@@ -107,5 +107,5 @@ class xlsScraper:
 if __name__ == '__main__':
     scr = xlsScraper("/home/max/Downloads/export.xls")
     scr.groupList()
-    scr.indexDict()
-    scr.eventDict(13, 1)
+    print(scr.indexDict())
+    scr.eventDict(21, 1)
